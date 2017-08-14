@@ -1,0 +1,114 @@
+﻿@model SORT_doc_app.Models.Summary
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Summary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDelivery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDelivery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostCentre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostCentre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectManagers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectManagers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PCISOX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PCISOX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoLiveDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoLiveDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArchLeadTeams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArchLeadTeams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportTeams)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportTeams)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SummaryComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SummaryComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,281 @@
+﻿@model SORT_doc_app.Models.Project
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Project Dashboard</h2>
+        <br />
+        <br />
+        <p>Service Operational Readiness Transition Document @Model.ID </p>
+        <p>@Model.Title</p>
+
+        @Html.ActionLink("View Document History", "DocHistory", new { id = @Model.ID })
+
+    </div>
+    <div class="col-md-4" style="margin-top: 40px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @using (Html.BeginForm("Index", "Projects", FormMethod.Get))
+            {
+                    <p>
+                        @Html.TextBox("SearchString", "", htmlAttributes: new { placeholder = "Search", style = " min-width: 55%; padding-left: 5px; height:37px; border: 1px solid #DFE1E3; border-radius: 5px;", }) <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-cog"></span></button>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-question-sign"></span></button>
+                    </p>
+                }
+                <div style=" padding-left: 5px; padding-bottom: 5px; border: 1px solid #DFE1E3; border-radius: 5px; ">
+                    <h4>Latest Event</h4> 
+                                        @if(ViewBag.Events != null)
+                {
+                        foreach (var item in ViewBag.Events)
+                        { <span>Project </span> @item.ProjectID <span> </span> @item.EventType <span> at </span> @item._Date
+                    }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+
+        </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+<hr style="margin-top:0px">
+<div class="row" style="margin-left:0px; margin-right:0px">
+    <div class="col-md-3" style="padding-right: 15px; padding-left:0px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>SORT Details</h4>
+                <!-- <div style="padding-left:10px; padding-right:10px; padding-bottom:15px; border: 1px solid #DFE1E3; border-radius: 5px; line-height:2em">
+                    -->
+                    @Html.Partial("_ProjDetails")
+                <!-- </div> -->
+                <div class="dropdown">
+                    <strong>Change Status</strong>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Select Status
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="@Url.Action("ChangeStatus")/@Model.ID?status=on_hold">On Hold</a></li>
+                        <li><a href="@Url.Action("ChangeStatus")/@Model.ID?status=initiated">SOR Transition Initated</a></li>
+                        <li><a href="@Url.Action("ChangeStatus")/@Model.ID?status=knowledge_transfer">Knowledge Transfer</a></li>
+                        <li><a href="@Url.Action("ChangeStatus")/@Model.ID?status=steady_and_warranty">Steady and Warranty</a></li>
+                        <li><a href="@Url.Action("ChangeStatus")/@Model.ID?status=closed">SORT Closed</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="col-md-9 bordered">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4>Service / Environment Summary Overview</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Approved: @Html.DisplayFor(model => model.SummaryDone)</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=summary';return false;"style="min-width:80px">Approve</button></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>
+                                        Assigned To: @if (ViewBag.summary != null)
+                                        {
+                                            foreach (var item in ViewBag.summary)
+                                            {
+                                                <span>@item.Assignee </span>
+                                            }
+                                        }
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=summary';return false;" style="min-width:80px">Assign</button></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="margin-top:12px;">
+                            <button class="showbtn" id="summary">Show/Hide</button>
+                            <button onclick="location.href='@Url.Action("Edit", "Summaries")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                            <p style="margin-top:5px">Last Edit: </p>
+                        </div>
+                    </div>
+
+                <div id="summarydiv" style="display: none">
+                </div>
+            </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>High level Service specifics </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.ServSpecDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=servspec';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.servspec != null)
+                            {
+                                foreach (var item in ViewBag.servspec)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=servspec';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="servspec">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "ServiceSpecifics")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+
+        <div id="servspecdiv" style="display: none">
+        </div>
+    </div>
+
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Enterprise Operations Centre – EOC Requirements  </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.EOCDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=eoc';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.eoc != null)
+                            {
+                                foreach (var item in ViewBag.eoc)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=eoc';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="eoc">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "EocReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+
+        <div id="eocdiv" style="display: none">
+        </div>
+    </div>
+
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Apps Support Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.SummaryDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=appsupport';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.appsupport != null)
+                            {
+                                foreach (var item in ViewBag.appsupport)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=appsupport';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="appsupport">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "AppsSuport")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+
+        <div id="appsupportdiv" style="display: none">
+        </div>
+    </div>
+
+
+
+
+
+        </div>
+
+
+<script>
+
+    var toggleVal = false;
+
+    $(".showbtn").click(function () {
+
+        if (toggleVal == false) {
+            getSection(this.id);
+            toggleVal == true;
+        }
+
+        $("#"+ this.id +"div").toggle("slow");
+
+    });
+
+    function getSection(section) {
+        $.ajax({
+            url: "/Projects/GetSection/" + '@(Model.ID)' + "?section=" + section,
+            type: 'Get',
+            success: function (data) {
+                $("#" + section + "div").empty().append(data);
+            },
+            error: function () {
+                alert("something seems wrong");
+            }
+        });
+    }
+
+</script>

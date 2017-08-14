@@ -1,0 +1,146 @@
+﻿@model SORT_doc_app.Models.GISReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GISReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISQAPersonnel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISQAPersonnel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISArchReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISArchReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISSecInfra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISSecInfra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISVulnerabilityScan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISVulnerabilityScan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISEventTool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISEventTool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISIntrusionDetect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISIntrusionDetect)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISHardening)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISHardening)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISAdditional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISAdditional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISDataClassification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISDataClassification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISEncryption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISEncryption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISProcess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISProcess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISAccess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISAccess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISSourceAssure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISSourceAssure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISPenetration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISPenetration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

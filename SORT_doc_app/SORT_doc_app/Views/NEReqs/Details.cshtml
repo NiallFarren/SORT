@@ -1,0 +1,194 @@
+﻿@model SORT_doc_app.Models.NEReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NEReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEYesNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEYesNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEChangeContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEChangeContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEChangeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEChangeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEChangeLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEChangeLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEChangeIPInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEChangeIPInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEChangeReasonResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEChangeReasonResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEChangeSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEChangeSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEServiceContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEServiceContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEServiceDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEServiceDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEServiceLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEServiceLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEServiceIPInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEServiceIPInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEServiceResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEServiceResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEServiceSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEServiceSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEAcqMigrDomain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEAcqMigrDomain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEAcqMigrDNS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEAcqMigrDNS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEAcqTunnels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEAcqTunnels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEAcqSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEAcqSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NENewConfirmConnectivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NENewConfirmConnectivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NENewSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NENewSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEEnvironment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEEnvironment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model SORT_doc_app.Models.SREReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SREReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SREYesNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SREYesNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SREYContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SREYContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SREDocument)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SREDocument)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SREPasswords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SREPasswords)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

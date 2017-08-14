@@ -1,0 +1,111 @@
+﻿@model IEnumerable<SORT_doc_app.Models.EOCReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCPOCs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCDocsAndDemo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCProcessFlows)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCMonitoring)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCSignOff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCCustomers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCSevEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCCrisis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCProcess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCExceptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCPOCs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCDocsAndDemo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCProcessFlows)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCMonitoring)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCSignOff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCCustomers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCSevEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCCrisis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCProcess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCExceptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

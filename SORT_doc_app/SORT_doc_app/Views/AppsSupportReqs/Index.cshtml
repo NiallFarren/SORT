@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SORT_doc_app.Models.AppsSupportReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupAccountsAccess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupToolsA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupToolsB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupToolsC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupToolsD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupDemoTraining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupContactsProvided)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupCustContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupAccountsAccess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupToolsA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupToolsB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupToolsC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupToolsD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupDemoTraining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupContactsProvided)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupCustContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

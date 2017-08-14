@@ -1,0 +1,123 @@
+﻿@model IEnumerable<SORT_doc_app.Models.SMOReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOContracts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOTemplates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMODocuments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOBusinessContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOChangeManagement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOIncidentManagement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOUsage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOKPIsSLAs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOSLMReporting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOChReports)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOIPMRdefined)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOProgManagement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOChManagementTicketing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOKPIProbes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMOComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOContracts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOTemplates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMODocuments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOBusinessContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOChangeManagement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOIncidentManagement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOUsage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOKPIsSLAs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOSLMReporting)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOChReports)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOIPMRdefined)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOProgManagement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOChManagementTicketing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOKPIProbes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMOComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

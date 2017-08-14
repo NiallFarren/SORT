@@ -1,0 +1,122 @@
+﻿@model SORT_doc_app.Models.SCVReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SCVReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVYesNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVYesNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVIpsCreds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVIpsCreds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVNetwork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVNetwork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVInventory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVInventory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVSupport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVSupport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVChangeControl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVChangeControl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVSecurity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVSecurity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVSPOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVSPOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVTraining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVTraining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SORT_doc_app.Models.Risks>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksPrePlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksPreAccept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksPreOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksPreDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksWarrantyPlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksWarrantyAccept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksWarrantyOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksWarrantyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksPrePlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksPreAccept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksPreOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksPreDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksWarrantyPlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksWarrantyAccept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksWarrantyOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksWarrantyDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

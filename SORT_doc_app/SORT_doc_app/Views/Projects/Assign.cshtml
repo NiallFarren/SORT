@@ -1,0 +1,74 @@
+﻿@model SORT_doc_app.Models.Project
+
+@{
+    ViewBag.Title = "Assign Section";
+}
+
+<h2>Assign Section</h2>
+Assigning section of SORT entitled "@ViewBag.sectionTitle"
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Project Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Date)
+        </dd>
+
+
+        </dl>
+    <div class="form-group">
+        @Html.Label("Assign Section To:", htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        @using (Html.BeginForm("Assign", "Projects", FormMethod.Post))
+        {
+            @Html.HiddenFor(model => model.ID);
+            <input type="hidden" name="section" id="section" value="@ViewBag.section" />
+            @Html.TextBox("assignee", null, new { placeholder = "Enter Email" })
+
+
+            <input type="submit" value="Assign" />
+        }
+
+
+        </div>
+
+
+
+    </div>

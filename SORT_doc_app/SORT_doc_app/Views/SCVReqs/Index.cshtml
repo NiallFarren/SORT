@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SORT_doc_app.Models.SCVReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVYesNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVIpsCreds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVNetwork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVInventory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVSupport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVChangeControl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVSecurity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVSPOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVForecast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVTraining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVYesNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVIpsCreds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVNetwork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVInventory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVSupport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVChangeControl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVSecurity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVSPOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVForecast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVTraining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

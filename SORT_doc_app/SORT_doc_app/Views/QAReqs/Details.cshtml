@@ -1,0 +1,106 @@
+﻿@model SORT_doc_app.Models.QAReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QAReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QAContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QAContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QATeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QATeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QAFramework)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QAFramework)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QASmokeTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QASmokeTest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QALocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QALocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QAHandestsSIMs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QAHandestsSIMs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QAIssues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QAIssues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QAJira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QAJira)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QAPlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QAPlan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

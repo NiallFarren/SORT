@@ -1,0 +1,90 @@
+﻿@model SORT_doc_app.Models.SignOff
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SignOff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffPM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffPM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffSRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffSRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffGIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffGIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffEOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffEOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffSupport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffSupport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffCCT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffCCT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffSDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffSDM)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

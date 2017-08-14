@@ -1,0 +1,114 @@
+﻿@model SORT_doc_app.Models.PBX
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PBX</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXPhysAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXPhysAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXTestPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXTestPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXShipSend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXShipSend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXExtConf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXExtConf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBX911)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBX911)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXDisconnect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXDisconnect)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXAuthorised)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXAuthorised)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXCollab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXCollab)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXDSCIMSA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXDSCIMSA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

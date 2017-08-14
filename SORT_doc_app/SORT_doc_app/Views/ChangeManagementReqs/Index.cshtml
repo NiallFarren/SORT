@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SORT_doc_app.Models.ChangeManagementReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChCustomerClarity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChCMReqs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChReleases)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChCustomerClarity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChCMReqs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChReleases)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

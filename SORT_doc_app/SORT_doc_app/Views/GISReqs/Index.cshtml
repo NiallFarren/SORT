@@ -1,0 +1,123 @@
+﻿@model IEnumerable<SORT_doc_app.Models.GISReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISQAPersonnel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISArchReview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISSecInfra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISVulnerabilityScan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISEventTool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISIntrusionDetect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISHardening)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISAdditional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISDataClassification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISEncryption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISProcess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISAccess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISSourceAssure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISPenetration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISQAPersonnel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISArchReview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISSecInfra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISVulnerabilityScan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISEventTool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISIntrusionDetect)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISHardening)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISAdditional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISDataClassification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISEncryption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISProcess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISAccess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISSourceAssure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISPenetration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

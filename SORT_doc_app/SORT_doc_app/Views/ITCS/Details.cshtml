@@ -1,0 +1,106 @@
+﻿@model SORT_doc_app.Models.ITCS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ITCS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSDomains)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSDomains)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSSoftware)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSSoftware)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSBuying)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSBuying)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSEmailConfig)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSEmailConfig)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSInventory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSInventory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

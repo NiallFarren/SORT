@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SORT_doc_app.Models.SignOff>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffPM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffSRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffGIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffEOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffSupport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffCCT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffSDM)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffPM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffSRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffGIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffEOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffSupport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffCCT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffSDM)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

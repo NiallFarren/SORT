@@ -1,0 +1,114 @@
+﻿@model SORT_doc_app.Models.IAMReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IAMReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMTraining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMTraining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMApproval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMApproval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMUserAccess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMUserAccess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMUrls)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMUrls)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMAccLockout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMAccLockout)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMOLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMOLA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMPermission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMPermission)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

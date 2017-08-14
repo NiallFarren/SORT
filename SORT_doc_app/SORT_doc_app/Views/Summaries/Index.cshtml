@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SORT_doc_app.Models.Summary>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceDelivery)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostCentre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectManagers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PCISOX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GoLiveDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArchLeadTeams)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupportTeams)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SummaryComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceDelivery)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostCentre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectManagers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PCISOX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoLiveDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArchLeadTeams)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupportTeams)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SummaryComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

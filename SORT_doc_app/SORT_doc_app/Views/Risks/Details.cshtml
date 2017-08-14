@@ -1,0 +1,98 @@
+﻿@model SORT_doc_app.Models.Risks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Risks</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksPrePlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksPrePlan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksPreAccept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksPreAccept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksPreOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksPreOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksPreDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksPreDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksWarrantyPlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksWarrantyPlan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksWarrantyAccept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksWarrantyAccept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksWarrantyOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksWarrantyOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksWarrantyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksWarrantyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

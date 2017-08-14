@@ -1,0 +1,58 @@
+﻿@model SORT_doc_app.Models.ChangeManagementReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChangeManagementReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChCustomerClarity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChCustomerClarity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChCMReqs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChCMReqs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChReleases)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChReleases)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

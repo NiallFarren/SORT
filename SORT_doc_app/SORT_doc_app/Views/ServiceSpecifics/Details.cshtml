@@ -1,0 +1,114 @@
+﻿@model SORT_doc_app.Models.ServiceSpecifics
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceSpecifics</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Links)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Links)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VPN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VPN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostPlatform)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostPlatform)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BackupRecovery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BackupRecovery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotesAndGrid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotesAndGrid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Changes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Changes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoLiveReqs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoLiveReqs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLAsSOW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLAsSOW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LicensingAndHardware)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LicensingAndHardware)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BCorDR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BCorDR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SORT_doc_app.Models.ITCS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSDomains)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSSoftware)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSBuying)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSEmailConfig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSInventory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSListing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSDomains)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSSoftware)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSBuying)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSEmailConfig)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSInventory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSListing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

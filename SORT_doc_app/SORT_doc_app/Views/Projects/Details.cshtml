@@ -1,0 +1,433 @@
+﻿@model SORT_doc_app.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<p>Service Operational Readiness Transition Document @Model.ID </p>
+
+@Html.ActionLink("View Document History", "DocHistory", new { id = @Model.ID })
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>  *@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Project Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Open)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Open)
+        </dd>
+
+        <dt>
+            Days Until Go Live Date
+        </dt>
+
+        <dd>
+            @ViewBag.timeRemaining
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SummaryDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SummaryDone) 
+            @*<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>*@
+            <label style="width:10px;"></label>
+            @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "summary" })
+            <label style="width:10px;"></label>
+             @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "summary" })  
+            @*<a class="btn btn-primary" href="@Url.Action("Details", "Summaries")/@Model.ID?">View</a>
+    <a class="btn btn-info" href="@Url.Action("Assign")/@Model.ID?section=summary">Assign</a>
+    <a class="btn btn-success" href="@Url.Action("Approve")/@Model.ID?section=summary">Approve</a>*@
+                <label style="width:10px;"></label>
+                @if (ViewBag.summary != null)
+                {
+                    foreach (var item in ViewBag.summary)
+                    {
+                    <span> Assigned: @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ServSpecDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ServSpecDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "servspec" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "servspec" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.servspec != null)
+                {
+                    foreach (var item in ViewBag.servspec)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EOCDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EOCDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "eoc" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "eoc" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.eoc != null)
+                {
+                    foreach (var item in ViewBag.eoc)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AppSupportDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppSupportDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "appsupport" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "appsupport" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.appsupport != null)
+                {
+                    foreach (var item in ViewBag.appsupport)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChangeManDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChangeManDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "changeman" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "changeman" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.changeman != null)
+                {
+                    foreach (var item in ViewBag.changeman)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GISDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GISDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "gis" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "gis" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.gis != null)
+                {
+                    foreach (var item in ViewBag.gis)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NEDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NEDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "ne" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "ne" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.ne != null)
+                {
+                    foreach (var item in ViewBag.ne)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SCVDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SCVDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "scv" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "scv" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.scv != null)
+                {
+                    foreach (var item in ViewBag.scv)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SREDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SREDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "sre" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "sre" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.sre != null)
+                {
+                    foreach (var item in ViewBag.sre)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DBADone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DBADone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "dba" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "dba" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.dba != null)
+                {
+                    foreach (var item in ViewBag.dba)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.QADone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QADone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "qa" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "qa" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.qa != null)
+                {
+                    foreach (var item in ViewBag.qa)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IAMDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IAMDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "iam" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "iam" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.iam != null)
+                {
+                    foreach (var item in ViewBag.iam)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PBXDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PBXDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "pbx" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "pbx" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.pbx != null)
+                {
+                    foreach (var item in ViewBag.pbx)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ITCSDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ITCSDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "itcs" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "itcs" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.itcs != null)
+                {
+                    foreach (var item in ViewBag.itcs)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SMODone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SMODone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "smo" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "smo" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.smo != null)
+                {
+                    foreach (var item in ViewBag.smo)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RisksDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RisksDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "risks" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "risks" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.risks != null)
+                {
+                    foreach (var item in ViewBag.risks)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SignOffDone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SignOffDone)
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Approve", "Approve", new { id = Model.ID, section = "signoff" })
+                <label style="width:10px;"></label>
+                @Html.ActionLink("Assign", "Assign", new { id = Model.ID, section = "signoff" })
+                <label style="width:10px;"></label>
+                @if (ViewBag.signoff != null)
+                {
+                    foreach (var item in ViewBag.signoff)
+                    {
+                    <span> @item.Assignee </span>
+                    }
+                }
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

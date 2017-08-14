@@ -1,0 +1,208 @@
+﻿@model SORT_doc_app.Models.Project
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Open)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Open)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SummaryDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SummaryDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServSpecDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServSpecDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EOCDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EOCDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppSupportDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppSupportDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeManDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeManDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NEDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCVDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCVDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SREDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SREDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBADone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBADone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QADone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QADone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IAMDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IAMDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBXDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBXDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMODone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMODone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RisksDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RisksDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOffDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOffDone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

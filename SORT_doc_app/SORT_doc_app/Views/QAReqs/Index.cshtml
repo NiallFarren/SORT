@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SORT_doc_app.Models.QAReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QAContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QATeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QAFramework)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QASmokeTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QALocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QAHandestsSIMs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QAIssues)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QAJira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QAPlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QAContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QATeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QAFramework)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QASmokeTest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QALocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QAHandestsSIMs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QAIssues)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QAJira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QAPlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

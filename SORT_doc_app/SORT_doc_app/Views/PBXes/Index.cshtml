@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SORT_doc_app.Models.PBX>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXPhysAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXTestPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXShipSend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXExtConf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBX911)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXDisconnect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXAuthorised)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXCollab)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXDSCIMSA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXPhysAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXTestPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXShipSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXExtConf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBX911)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXDisconnect)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXAuthorised)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXCollab)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXDSCIMSA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

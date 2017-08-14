@@ -1,0 +1,218 @@
+﻿@model SORT_doc_app.Models.DBAReqs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DBAReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAYesNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAYesNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBADbInstance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBADbInstance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBADbVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBADbVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBADbOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBADbOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAUserIDs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAUserIDs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBALinks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBALinks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAFeatures)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAFeatures)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAAppTouchPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAAppTouchPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBADbTouchPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBADbTouchPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAVolumeEstimates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAVolumeEstimates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAUserVolume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAUserVolume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAArchPurging)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAArchPurging)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAPools)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAPools)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBACRUDMatrix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBACRUDMatrix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAPerformance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAPerformance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBADBMSJobs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBADBMSJobs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBARollback)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBARollback)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBARollbackTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBARollbackTest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBABRProcess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBABRProcess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBABackupReqs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBABackupReqs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBARecoveryReqs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBARecoveryReqs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBARetentionReqs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBARetentionReqs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBAComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBAComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

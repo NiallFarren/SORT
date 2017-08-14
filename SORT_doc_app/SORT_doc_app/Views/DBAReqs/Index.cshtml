@@ -1,0 +1,177 @@
+﻿@model IEnumerable<SORT_doc_app.Models.DBAReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAYesNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBADbInstance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBADbVersion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBADbOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAUserIDs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBALinks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAFeatures)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAAppTouchPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBADbTouchPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAVolumeEstimates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAUserVolume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAArchPurging)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAPools)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBACRUDMatrix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAPerformance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBADBMSJobs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBARollback)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBARollbackTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBABRProcess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBABackupReqs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBARecoveryReqs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBARetentionReqs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBAComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAYesNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBADbInstance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBADbVersion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBADbOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAUserIDs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBALinks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAFeatures)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAAppTouchPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBADbTouchPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAVolumeEstimates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAUserVolume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAArchPurging)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAPools)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBACRUDMatrix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAPerformance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBADBMSJobs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBARollback)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBARollbackTest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBABRProcess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBABackupReqs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBARecoveryReqs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBARetentionReqs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBAComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

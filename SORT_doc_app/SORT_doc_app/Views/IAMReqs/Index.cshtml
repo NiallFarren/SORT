@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SORT_doc_app.Models.IAMReqs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMContacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMTraining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMSummary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMApproval)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMUserAccess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMUrls)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMAccLockout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMOLA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMPermission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMContacts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMTraining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMSummary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMApproval)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMUserAccess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMUrls)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMAccLockout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMOLA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMPermission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
