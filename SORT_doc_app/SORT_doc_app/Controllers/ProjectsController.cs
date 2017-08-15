@@ -753,9 +753,63 @@ namespace SORT_doc_app.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Summary summary = db.Summaries.Find(id);
-
-            return PartialView("_SummaryPartial", summary);
+            switch (section)
+            {
+                case "summary":
+                    Summary summary = db.Summaries.Find(id);
+                    return PartialView("_SummaryPartial", summary);
+                case "servspec":
+                    ServiceSpecifics servspec = db.ServiceSpecifics.Find(id);
+                    return PartialView("_ServSpecPartial", servspec);
+                case "eoc":
+                    EOCReqs eoc = db.EOCReqs.Find(id);
+                    return PartialView("_EOCReqscPartial", eoc);
+                case "appsupport":
+                    AppsSupportReqs appsupport = db.AppsSupportReqs.Find(id);
+                    return PartialView("_AppsSupportPartial", appsupport);
+                case "changeman":
+                    ChangeManagementReqs changeman = db.ChangeManagementReqs.Find(id);
+                    return PartialView("_ChangeManPartial", changeman);
+                case "gis":
+                    GISReqs gis = db.GISReqs.Find(id);
+                    return PartialView("_GISReqsPartial", gis);
+                case "ne":
+                    NEReqs ne = db.NEReqs.Find(id);
+                    return PartialView("_NEReqsPartial", ne);
+                case "scv":
+                    SCVReqs scv = db.SCVReqs.Find(id);
+                    return PartialView("_SCVReqsPartial", scv);
+                case "sre":
+                    SREReqs sre = db.SREReqs.Find(id);
+                    return PartialView("_SREReqsPartial", sre);
+                case "dba":
+                    DBAReqs dba = db.DBAReqs.Find(id);
+                    return PartialView("_SBAReqsPartial", dba);
+                case "qa":
+                    QAReqs qa = db.QAReqs.Find(id);
+                    return PartialView("_QAReqsPartial", qa);
+                case "iam":
+                    IAMReqs iam = db.IAMReqs.Find(id);
+                    return PartialView("_IAMeqsPartial", iam);
+                case "pbx":
+                    PBX pbx = db.PBX.Find(id);
+                    return PartialView("_PBXPartial", pbx);
+                case "itcs":
+                    ITCS itcs = db.ITCS.Find(id);
+                    return PartialView("_ITCSPartial", itcs);
+                case "smo":
+                    SMOReqs smo = db.SMOReqs.Find(id);
+                    return PartialView("_SMOReqsPartial", smo);
+                case "risks":
+                    Risks risks = db.Risks.Find(id);
+                    return PartialView("_RisksPartial", risks);
+                case "signoff":
+                    SignOff signoff = db.SignOffs.Find(id);
+                    return PartialView("_SignOffsPartial", signoff);
+                default:
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+ 
         }
 
         protected override void Dispose(bool disposing)

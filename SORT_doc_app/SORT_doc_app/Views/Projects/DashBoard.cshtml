@@ -81,7 +81,7 @@
     </div>
 
 
-                <div class="col-md-9 bordered">
+            <div class="col-md-9 bordered">
                     <div class="row">
                         <div class="col-md-8">
                             <h4>Service / Environment Summary Overview</h4>
@@ -118,8 +118,8 @@
                     </div>
 
                 <div id="summarydiv" style="display: none">
-                </div>
             </div>
+        </div>
 
     <div class="col-md-9 bordered">
         <div class="row">
@@ -209,7 +209,7 @@
                 <h4>Apps Support Requirements </h4>
                 <div class="row">
                     <div class="col-md-6">
-                        <p>Approved: @Html.DisplayFor(model => model.SummaryDone)</p>
+                        <p>Approved: @Html.DisplayFor(model => model.AppSupportDone)</p>
                     </div>
                     <div class="col-md-6">
                         <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=appsupport';return false;" style="min-width:80px">Approve</button></p>
@@ -244,10 +244,49 @@
     </div>
 
 
-
-
-
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Change Management Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.ChangeManDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=changeman';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.changeman != null)
+                            {
+                                foreach (var item in ViewBag.changeman)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=changeman';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="changeman">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "ChangeManagementReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
         </div>
+            <div id="changemandiv" style="display: none">
+            </div>
+    </div>
+
+
+
+
+</div>
 
 
 <script>
