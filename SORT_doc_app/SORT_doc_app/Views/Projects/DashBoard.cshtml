@@ -6,7 +6,7 @@
     ViewBag.Title = "DashBoard";
 }
 
-<div class="row">
+<div class="row" >
     <div class="col-md-8">
         <h2>Project Dashboard</h2>
         <br />
@@ -27,8 +27,8 @@
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-cog"></span></button>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-question-sign"></span></button>
-                    </p>
+                        <button type="submit" class="btn btn-default" data-toggle = "modal" data-target = "#myModal">
+                            <span class="glyphicon glyphicon-question-sign"></span>  </button ></p >
                 }
                 <div style=" padding-left: 5px; padding-bottom: 5px; border: 1px solid #DFE1E3; border-radius: 5px; ">
                     <h4>Latest Event</h4> 
@@ -43,6 +43,24 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Apollo Tutorial</h4>
+            </div>
+            <div class="modal-body">
+                <video width="800" height="600" controls="controls">
+                    <source src="~/Content/Video/tutorial%20video.mp4" type="video/mp4" />
+                </video>
+              </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
     <div class="col-md-8">
 
@@ -57,7 +75,23 @@
     <div class="col-md-3" style="padding-right: 15px; padding-left:0px">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>SORT Details</h4>
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4>SORT Details</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="glyphicon glyphicon-tasks"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><a href="@Url.Action("Edit")/@Model.ID?">Edit<label style="width:35px;"></label><span class="glyphicon glyphicon-pencil" ></span></a></li>
+                                <li><a href="@Url.Action("MakeReport")">Report<label style="width:15px;"></label><span class="glyphicon glyphicon-stats"></span></a></li>
+                                <li><a href="@Url.Action("MakePDF")/@Model.ID?">PDF<label style="width:30px;"></label><span class="glyphicon glyphicon-file"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <!-- <div style="padding-left:10px; padding-right:10px; padding-bottom:15px; border: 1px solid #DFE1E3; border-radius: 5px; line-height:2em">
                     -->
                     @Html.Partial("_ProjDetails")
@@ -283,8 +317,478 @@
             </div>
     </div>
 
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>GIS Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.GISDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=gis';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.gis != null)
+                            {
+                                foreach (var item in ViewBag.gis)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=gis';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="changeman">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "GISReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="gisdiv" style="display: none">
+        </div>
+    </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>NE Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.NEDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=ne';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.ne != null)
+                            {
+                                foreach (var item in ViewBag.ne)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=ne';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="ne">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "NEReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="nediv" style="display: none">
+        </div>
+    </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>SCV Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.SCVDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=scv';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.scv != null)
+                            {
+                                foreach (var item in ViewBag.scv)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=scv';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="scv">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "SCVReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="scvdiv" style="display: none">
+        </div>
+    </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>SRE Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.SREDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=sre';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.sre != null)
+                            {
+                                foreach (var item in ViewBag.sre)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=sre';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="sre">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "SREReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="srediv" style="display: none">
+        </div>
+    </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>DBA Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.DBADone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=dba';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.dba != null)
+                            {
+                                foreach (var item in ViewBag.dba)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=dba';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="dba">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "DBAReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="dbadiv" style="display: none">
+        </div>
+    </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>QA & Test Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.QADone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=qa';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.qa != null)
+                            {
+                                foreach (var item in ViewBag.qa)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=qa';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="qa">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "QAReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="qadiv" style="display: none">
+        </div>
+    </div>
 
 
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>IAM Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.IAMDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=iam';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.iam != null)
+                            {
+                                foreach (var item in ViewBag.iam)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=iam';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="iam">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "IAMReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="iamdiv" style="display: none">
+        </div>
+    </div>
+
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>PBX / Telephony Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.PBXDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=pbx';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.pbx != null)
+                            {
+                                foreach (var item in ViewBag.pbx)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=pbx';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="pbx">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "PBXReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="pbxdiv" style="display: none">
+        </div>
+    </div>
+
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>ITCS Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.ITCSDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=itcs';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.itcs != null)
+                            {
+                                foreach (var item in ViewBag.itcs)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=itcs';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="itcs">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "ITCSReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="itcsdiv" style="display: none">
+        </div>
+    </div>
+
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>SMO Requirements </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.SMODone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=smo';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.smo != null)
+                            {
+                                foreach (var item in ViewBag.smo)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=smo';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="smo">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "SMOReqs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="smodiv" style="display: none">
+        </div>
+    </div>
+
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Risks Identified </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.RisksDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=risks';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.risks != null)
+                            {
+                                foreach (var item in ViewBag.risks)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=risks';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="risks">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "Risks")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="risksdiv" style="display: none">
+        </div>
+    </div>
+
+    <div class="col-md-9 bordered">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Sign Off Post Warranty Phase</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Approved: @Html.DisplayFor(model => model.SignOffDone)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Approve")/@Model.ID?section=signoff';return false;" style="min-width:80px">Approve</button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Assigned To: @if (ViewBag.signoff != null)
+                            {
+                                foreach (var item in ViewBag.signoff)
+                                {
+                                    <span>@item.Assignee </span>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><button onclick="location.href='@Url.Action("Assign")/@Model.ID?section=signoff';return false;" style="min-width:80px">Assign</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:12px;">
+                <button class="showbtn" id="signoff">Show/Hide</button>
+                <button onclick="location.href='@Url.Action("Edit", "SignOffs")/@Model.ID';return false;" style="min-width:80px">Edit</button>
+                <p style="margin-top:5px">Last Edit: </p>
+            </div>
+        </div>
+        <div id="signoffdiv" style="display: none">
+        </div>
+    </div>
 
 </div>
 

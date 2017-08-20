@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using SORT_doc_app.Context;
 using SORT_doc_app.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Net.Mail;
 using Microsoft.AspNet.Identity;
 
@@ -107,8 +110,8 @@ namespace SORT_doc_app.Controllers
             }
 
             DateTime goLive = project.GoLiveDate;
-            ViewBag.timeRemaining = (goLive - DateTime.Now).Days;//doesn't give correct answer sadly 
-
+            ViewBag.timeRemaining = (goLive - DateTime.Now).Days;
+            ViewBag.hoursRemaining = (goLive - DateTime.Now).Hours; 
             return View(project);
         }
 
@@ -462,7 +465,8 @@ namespace SORT_doc_app.Controllers
 
             var baseUrl = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
             var fullUrl = baseUrl + assignedSectionUrl + "/Edit/" + project.ID;
-            var body = "<p>You have been invited by " + author + " to complete the SORT document \"" + title + "\" " + assignedSectionName + " section at </p>" + fullUrl;
+            var body = "<p stlye=\"color:#dad; font-family:'arial'\"> Hi " + assignee +",</p>" + //css not working apparently
+                "<p>You have been invited by " + author + " to complete the SORT document \"" + title + "\" " + assignedSectionName + " section at </p>" + fullUrl;
             var message = new MailMessage();
             message.To.Add(new MailAddress(assignee));
             message.From = new MailAddress("sncrneanderthals@gmail.com");
@@ -811,6 +815,200 @@ namespace SORT_doc_app.Controllers
             }
  
         }
+
+
+        public ActionResult MakePDF(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Project project = db.Projects.Find(id);
+            Summary summary = db.Summaries.Find(project.ID);
+
+            // try
+
+            Document doc = new Document(PageSize.A4.Rotate(), 10, 10, 10, 10);
+            var path = AppDomain.CurrentDomain.BaseDirectory + "pdf/" + project.Title + ".pdf";
+            string imagepath = AppDomain.CurrentDomain.BaseDirectory + "Content/Images";
+            var output = new FileStream(path, FileMode.Create);
+            PdfWriter wri = PdfWriter.GetInstance(doc, output);
+
+            doc.Open();
+
+            var titleFont = FontFactory.GetFont("Century Gothic", 20, Font.BOLD, BaseColor.BLUE);
+            var subTitleFont = FontFactory.GetFont("Century Gothic", 12, Font.BOLD);
+            var boldTableFont = FontFactory.GetFont("Cambria", 10, Font.BOLD);
+            var endingMessageFont = FontFactory.GetFont("Cambria", 9, Font.ITALIC);
+            var bodyFont = FontFactory.GetFont("Cambria", 11, Font.NORMAL);
+            var tableFont = FontFactory.GetFont("Cambria", 10, Font.NORMAL);
+
+            Image logo = Image.GetInstance(imagepath + "/logo.png");
+
+            doc.Add(logo);
+            var date = DateTime.Now;
+            string dateString = String.Format("{0:dddd, MMMM d, yyyy}", date);
+            Paragraph header = new Paragraph("Service Operational Readiness Transition: " +
+                "\n" + project.Title +
+                "\n" + dateString, titleFont);
+            header.Alignment = Element.ALIGN_CENTER;
+            doc.Add(header);
+            doc.Add(Chunk.NEWLINE);
+            doc.Add(new Paragraph(project.Description, subTitleFont));
+            doc.Add(new Paragraph(project.AuthorName, subTitleFont));
+
+            doc.NewPage();
+
+            PdfPTable table = new PdfPTable(1);
+            PdfPCell cell = new PdfPCell(new Phrase("Header spanning 1 column"));
+            cell.Colspan = 1;
+            cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+            table.AddCell(cell);
+            table.AddCell("Col 1 Row 1");
+            table.AddCell("Col 2 Row 1");
+            table.AddCell("Col 3 Row 1");
+            table.AddCell("Col 1 Row 2");
+            table.AddCell("Col 2 Row 2");
+            table.AddCell("Col 3 Row 2");
+            doc.Add(table);
+
+            doc.Close();
+
+            return RedirectToAction("Dashboard", project);
+        }
+
+
+        public ActionResult MakeReport()
+        {
+
+            var projects = from s in db.Projects
+                           select s;
+
+            // divide projects into groups by status, which will be placed by column
+            List<Project> onHold = projects.Where(s => s.Status.Equals("On Hold")).ToList();
+            List<Project> trans = projects.Where(s => s.Status.Equals("Initiated")).ToList();
+            List<Project> kt = projects.Where(s => s.Status.Equals("Knowledge Transfer")).ToList();
+            List<Project> steady = projects.Where(s => s.Status.Equals("Steady and Warranty")).ToList();
+            List<Project> closed = projects.Where(s => s.Status.Equals("SORT Closed")).ToList();
+
+            // put into arrays to iterate
+            var onHoldArray = onHold.ToArray();
+            var transArray = trans.ToArray();
+            var ktArray = kt.ToArray();
+            var steadyArray = steady.ToArray();
+            var closedArray = closed.ToArray();
+
+            //need to figure out max columns required
+            int a = onHold.Count();
+            int b = trans.Count();
+            int c = kt.Count();
+            int d = steady.Count();
+            int e = closed.Count();
+            int max = 0;
+
+            if (a >= b && a >= c && a >= d && a >= e)
+            {
+                max = a;
+            }
+            else if (b >= a && b >= c && b >= d && b >= e)
+            {
+                max = b;
+            }
+            else if (c >= a && c >= b && c >= d && c >= e)
+            {
+                max = c;
+            }
+            else if (d >= a && d >= b && d >= c && d >= e)
+            {
+                max = d;
+            }
+            else
+            {
+                max = e;
+            }
+
+
+            Document doc = new Document(iTextSharp.text.PageSize.A4.Rotate(), 10, 10, 10, 10);
+            var path = AppDomain.CurrentDomain.BaseDirectory + "pdf/" + "SORTReport" + ".pdf";
+            string imagepath = AppDomain.CurrentDomain.BaseDirectory + "Content/Images";
+            var output = new FileStream(path, FileMode.Create);
+            PdfWriter wri = PdfWriter.GetInstance(doc, output);
+
+            doc.Open();
+
+            var titleFont = FontFactory.GetFont("Century Gothic", 20, BaseColor.BLUE);
+            var subTitleFont = FontFactory.GetFont("Century Gothic", 12, BaseColor.BLUE);
+            var boldTableFont = FontFactory.GetFont("Cambria", 10, Font.BOLD);
+            var endingMessageFont = FontFactory.GetFont("Cambria", 9, Font.ITALIC);
+            var bodyFont = FontFactory.GetFont("Cambria", 11, Font.NORMAL);
+            var tableFont = FontFactory.GetFont("Cambria", 8, Font.NORMAL);
+
+            Image logo = Image.GetInstance(imagepath + "/logo.png");
+            //logo.ScalePercent(24f); scale image to 24% of size
+            doc.Add(logo);
+
+
+            string count = (projects.Count().ToString());
+            Paragraph header = new Paragraph("Service Operational Readiness / Transition Process", titleFont);
+            header.Alignment = Element.ALIGN_CENTER;
+            doc.Add(header);
+            Paragraph subHeader = new Paragraph("High level Overview - Stage of SORT", subTitleFont);
+            subHeader.Alignment = Element.ALIGN_CENTER;
+            doc.Add(subHeader);
+            Paragraph sub2Header = new Paragraph(count + " Services already supported 'Live' or in process of 'Go Live'.", subTitleFont);
+            sub2Header.Alignment = Element.ALIGN_CENTER;
+            doc.Add(sub2Header);
+            
+            doc.Add(Chunk.NEWLINE);
+
+            PdfPTable invisible = new PdfPTable(6); //invisible table for formatting
+            invisible.TotalWidth = 800f;
+            invisible.LockedWidth = true;
+            invisible.DefaultCell.BorderWidth = 1;
+
+            for (int i = 0; i <= max; i++)
+            {
+                if (i <= (a-1))
+                {
+                    invisible.AddCell(new Phrase(onHoldArray[i].Title, tableFont));
+                }
+                else invisible.AddCell(new Phrase(""));
+
+                if (i <= (b-1))
+                {
+                    invisible.AddCell(new Phrase(transArray[i].Title, tableFont));
+                }
+                else invisible.AddCell(new Phrase(""));
+
+                invisible.AddCell(new Phrase(""));
+
+                if (i <= (c-1))
+                {
+                    invisible.AddCell(new Phrase(ktArray[i].Title, tableFont));
+                }
+                else invisible.AddCell(new Phrase(""));
+
+                if (i <= (d-1))
+                {
+                    invisible.AddCell(new Phrase(steadyArray[i].Title, tableFont));
+                }
+                else invisible.AddCell(new Phrase(""));
+
+                if (i <= (e-1))
+                {
+                    invisible.AddCell(new Phrase(closedArray[i].Title, tableFont));
+                }
+                else invisible.AddCell(new Phrase(""));
+            }
+            doc.Add(invisible);
+
+
+            doc.Close();
+            return RedirectToAction("Index");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

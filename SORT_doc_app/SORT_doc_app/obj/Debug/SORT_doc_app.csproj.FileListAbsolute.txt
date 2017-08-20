@@ -358,3 +358,4 @@ C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migratio
 C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.status.resources
 C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.enumtest.resources
 C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.enumtestgone.resources
+C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\bin\itextsharp.xml

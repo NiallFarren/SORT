@@ -230,13 +230,16 @@
                     @Html.ActionLink("Sign Off", "Edit", "SignOffs", new { id = item.ID }, null)
                 </td> 
                 <td>
-                    <a class="btn btn-success" href="@Url.Action("Details")/@item.ID"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details")/@item.ID">
+                    <span class="glyphicon glyphicon-eye-open" style="text-shadow: 1px 1px 1px #000000;"></span></a>
                 </td>
                 <td>          
-                    <a class="btn btn-info" href="@Url.Action("Edit")/@item.ID"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-info" href="@Url.Action("Edit")/@item.ID">
+                    <span class="glyphicon glyphicon-pencil" style="text-shadow: 1px 1px 1px #000000;"></span></a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="@Url.Action("Delete")/@item.ID"><span class="glyphicon glyphicon-trash"></span></a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete")/@item.ID">
+                    <span class="glyphicon glyphicon-trash" style=" text-shadow: 1px 1px 1px #000000;"></span></a>
                 </td>
             </tr>
         }
